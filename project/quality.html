@@ -1,0 +1,511 @@
+/* 품질검사표 */
+
+        .quality-report {
+            width: 90%;
+            margin-left: 5%;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .quality-checker {
+            width: 30%;
+            background-color: #b3b3b3;
+        }
+
+        .quality-checker-img {
+            width: 50%;
+            margin-left: 40%;
+        }
+
+        .quality-checker-img img {
+            width: 50%;
+        }
+
+        .quality-checker-info {
+            width: 100%;
+            height: 50%;
+            background-color: #d1d0d0;
+            margin-top: 17%;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .quality-report-history {
+            width: 60%;
+            text-align: center;
+        }
+
+        .quality-table {
+            display: inline-block;
+            font-size: 10px;
+        }
+
+        .quality-table-title {
+            display: table-caption;
+            text-align: center;
+            font-weight: bold;
+            font-size: large;
+            margin-top: 3%;
+            margin-bottom: 3%;
+        }
+
+        .quality-table-title span {
+            font-size: 14px;
+        }
+
+        .quality-table-head {
+            display: table-row;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .quality-table-row {
+            display: table-row;
+        }
+
+        .quality-table-cell {
+            display: table-cell;
+            border: solid;
+            border-width: thin;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        .quality-table-head div {
+            background-color: #7a7a7a;
+        }
+
+        .back-button-div {
+            text-align: center;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .back-button-div button {
+            background-color: #3498DB;
+            margin-top: 10px;
+            width: 80px;
+            height: 40px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            border: 0;
+        }
+
+        .back-button-div button:hover {
+            background-color: rgb(0, 47, 255);
+            transition: 0.2s;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 점검기록표 -->
+
+<div id="quality-history">
+    <div class="quality-history">
+        <div class="quality-report">
+
+            <div class="quality-checker">
+                <div class="quality-checker-img">
+                    <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_1280.png">
+                </div>
+                <div class="quality-checker-info">
+                    <div>1차 품질관리인 정장훈</div>
+                    <div>
+                        010-0000-0000<br>
+                        aaa@naver.com
+                    </div>
+                </div>
+            </div>
+
+            <div class="quality-report-history">
+                <div class="quality-table">
+
+                    <div class="quality-table-title">
+                        <span>1차 점검일시 2024-01-27(토), 09:21</span>
+                    </div>
+
+                    <div class="quality-table-head">
+                        <div class="quality-table-cell">
+                            <p>1차</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>1라인 양품</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>1라인 불량</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>2라인 양품</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>2라인 불량</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>3라인 양품</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>3라인 불량</p>
+                        </div>
+                    </div>
+
+                    <div class="quality-table-row">
+                        <div class="quality-table-cell">
+                            <p>엔트리</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>9대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>1대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="quality-table-row">
+                        <div class="quality-table-cell">
+                            <p>메인</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>10대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>0대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="quality-table-row">
+                        <div class="quality-table-cell">
+                            <p>퍼포먼스</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>8대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>2대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="quality-report">
+
+            <div class="quality-checker">
+                <div class="quality-checker-img">
+                    <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_1280.png">
+                </div>
+                <div class="quality-checker-info">
+                    <div>2차 품질관리인 이도연</div>
+                    <div>
+                        010-0000-0000<br>
+                        aaa@naver.com
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quality-report-history">
+                <div class="quality-table">
+
+                    <div class="quality-table-title">
+                        <span>2차 점검일시 2024-01-27(토), 10:00</span>
+                    </div>
+
+                    <div class="quality-table-head">
+                        <div class="quality-table-cell">
+                            <p>1차</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>1라인 양품</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>1라인 불량</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>2라인 양품</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>2라인 불량</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>3라인 양품</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>3라인 불량</p>
+                        </div>
+                    </div>
+
+                    <div class="quality-table-row">
+                        <div class="quality-table-cell">
+                            <p>엔트리</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>9대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>1대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="quality-table-row">
+                        <div class="quality-table-cell">
+                            <p>메인</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>10대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>0대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="quality-table-row">
+                        <div class="quality-table-cell">
+                            <p>퍼포먼스</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>8대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>2대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="quality-report">
+
+            <div class="quality-checker">
+                <div class="quality-checker-img">
+                    <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_1280.png">
+                </div>
+                <div class="quality-checker-info">
+                    <div>3차 품질관리인 서효림</div>
+                    <div>
+                        010-0000-0000<br>
+                        aaa@naver.com
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quality-report-history">
+                <div class="quality-table">
+
+                    <div class="quality-table-title">
+                        <span>3차 점섬일시 - 202427(토), 오후 3시 예정</span>
+                    </div>
+
+                    <div class="quality-table-head">
+                        <div class="quality-table-cell">
+                            <p>1차</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>1라인 양품</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>1라인 불량</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>2라인 양품</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>2라인 불량</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>3라인 양품</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>3라인 불량</p>
+                        </div>
+                    </div>
+
+                    <div class="quality-table-row">
+                        <div class="quality-table-cell">
+                            <p>엔트리</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>9대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>1대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="quality-table-row">
+                        <div class="quality-table-cell">
+                            <p>메인</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>10대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>0대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div class="quality-table-row">
+                        <div class="quality-table-cell">
+                            <p>퍼포먼스</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>8대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p>2대</p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                        <div class="quality-table-cell">
+                            <p></p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-button-div">
+        <button type="button" id="back-button" class="back-button">뒤로가기</button>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+// 품질검사표 페이지
+
+        // var article_main = document.getElementById("article-main");
+        // var quality_history = document.getElementById("quality-history");
+        // var complete_button = document.getElementById("complete-button");
+        // var back_button = document.getElementById("back-button");
+
+        // complete_button.addEventListener("click", function() {
+        //     article_main.style.display = "none";
+        //     quality_history.style.display = "inline-block";
+        // });
+
+        // back_button.addEventListener("click", function() {
+        //     quality_history.style.display = "none";
+        //     article_main.style.display = "inline-block";
+        // });

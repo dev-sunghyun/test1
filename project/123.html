@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<style>
+    /* Modal styles */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+        background-color: white;
+        margin: 15% auto;
+        padding: 20px;
+        width: 70%;
+        border-radius: 5px;
+        position: relative;
+    }
+
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <button id="openModalBtn">Open Modal</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="close">&times;</span>
+            <h2>Modal Window</h2>
+            <p>This is a simple modal window example.</p>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal and buttons
+        var modal = document.getElementById("myModal");
+        var openModalBtn = document.getElementById("openModalBtn");
+        var closeModalBtn = document.getElementById("closeModalBtn");
+
+        // Open the modal
+        openModalBtn.addEventListener("click", function () {
+            modal.style.display = "block";
+            // Disable the click event on other shadow parts
+            modal.style.pointerEvents = "auto";
+        });
+
+        // Close the modal only when clicking the "x" button
+        closeModalBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+            // Re-enable the click event on other shadow parts
+            modal.style.pointerEvents = "none";
+        });
+
+        // Disable closing the modal by clicking outside of it
+        modal.addEventListener("click", function (event) {
+            event.stopPropagation();
+        });
+
+        // Enable closing the modal by clicking outside of it
+        window.addEventListener("click", function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                // Re-enable the click event on other shadow parts
+                modal.style.pointerEvents = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
