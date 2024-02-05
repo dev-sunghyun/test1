@@ -1,0 +1,11 @@
+div.main {
+    border: 1px solid red;
+    width: 500px;
+    margin: 0 auto;
+}
+div.main table {
+    margin: 30px 0;
+}
+div.main table td {
+    padding: 10px 20px;
+}
