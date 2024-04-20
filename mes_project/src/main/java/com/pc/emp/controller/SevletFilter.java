@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter("/*")
+@WebFilter("")
 public class SevletFilter implements Filter {
 
 	private Set<String> excludedPaths;
@@ -22,7 +22,7 @@ public class SevletFilter implements Filter {
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
 		// 인증이 필요 없는 경로를 담을 Set 초기화
-		excludedPaths = new HashSet<>();
+		excludedPaths = new HashSet<String>();
 		// 인증이 필요 없는 경로 추가
 		excludedPaths.add("/login.jsp");
 		excludedPaths.add("/sign.jsp");
@@ -33,6 +33,8 @@ public class SevletFilter implements Filter {
 		excludedPaths.add("/js/login.js"); 
 		excludedPaths.add("/js/signup.js"); 
 		excludedPaths.add("/images/"); 
+		excludedPaths.add("/mailGo"); 
+		excludedPaths.add("/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"); 
 	}
 
 	@Override
@@ -40,13 +42,21 @@ public class SevletFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
-
+		System.out.println("123");
 		// 요청에서 경로를 가져옴
 		String path = httpRequest.getRequestURI().substring(httpRequest.getContextPath().length());
 
 		// 요청된 경로가 제외된 경로 중 하나인지 확인
-		boolean isExcluded = excludedPaths.stream()
-				.anyMatch(excludedPath -> path.equals(excludedPath) || path.startsWith(excludedPath));
+		final String finalPath = path; // Make path effectively final
+		boolean isExcluded = false;
+		for (String excludedPath : excludedPaths) {
+		    if (finalPath.equals(excludedPath) || finalPath.startsWith(excludedPath)) {
+		        isExcluded = true;
+		        break;
+		    }
+		}
+
+
 
 		if (isExcluded) {
 			chain.doFilter(request, response); // 요청을 계속 진행하도록 허용

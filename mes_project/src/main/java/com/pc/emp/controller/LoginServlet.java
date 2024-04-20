@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	        throws ServletException, IOException {
 	    // login.jsp 페이지로 요청을 포워딩
-	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/login.jsp");
+	    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/login.jsp");
 	    dispatcher.forward(request, response);
 	}
 

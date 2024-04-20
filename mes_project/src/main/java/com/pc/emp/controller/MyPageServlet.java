@@ -2,10 +2,15 @@ package com.pc.emp.controller;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.lang.reflect.Type;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,13 +21,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.lang.reflect.Type;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -30,7 +28,7 @@ import com.google.gson.reflect.TypeToken;
 import com.pc.emp.dao.EmpRepositoryJDBC;
 import com.pc.emp.dto.Absent;
 import com.pc.emp.dto.Account;
-import board.free.BoardDTO;
+import com.project.board.dto.BoardDTO;
 
 @WebServlet("/mypage")
 public class MyPageServlet extends HttpServlet {
@@ -51,11 +49,16 @@ public class MyPageServlet extends HttpServlet {
 		if ("update".equals(action)) {
 			StringBuilder jsonBuilder = new StringBuilder();
 			String line;
-			try (BufferedReader reader = request.getReader()) {
+			
+			try {
+				BufferedReader reader = request.getReader(); 
 				while ((line = reader.readLine()) != null) {
 					jsonBuilder.append(line);
 				}
+			} catch(Exception e) {
+				e.printStackTrace();
 			}
+			
 			String json = jsonBuilder.toString();
 			Gson gson = new Gson();
 			Account account = gson.fromJson(json, Account.class); // JSON을 Account 객체로 변환
@@ -209,7 +212,7 @@ public class MyPageServlet extends HttpServlet {
 		} else {
 			try {
 				showSuggestBoard(request, response);
-			} catch (IOException | SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 				System.out.println("건의게시판 못들어감");
 			}

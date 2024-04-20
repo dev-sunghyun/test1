@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.board">
+	<select id="selectBoard" resultType="boardDTO" parameterType="boardDTO">
+		SELECT
+			*
+		FROM
+			STAFF s, board b 
+		/*WHERE s.staffno = b.staffno and boardType = '${boardtype}'*/
+	</select>
+	
+	<select id="deleteBoard" resultType="boardDTO" parameterType="boardDTO">
+		DELETE FROM
+			board 
+		WHERE seq = ${seq} and boardtype = '${boardtype}'
+	</select>
+	
+	<select id="updateBoard" resultType="boardDTO" parameterType="boardDTO">
+		UPDATE
+			board
+		SET
+			b_title = '${title}',
+			b_content = '${content}',
+		WHERE 
+			b_sequence = ${seq} and boardtype = '${boardtype}'
+	</select>
+	
+	<select id="insertBoard" resultType="boardDTO" parameterType="boardDTO">
+		INSERT INTO 
+			board
+		VALUES (
+			b_id.NEXTVAL, 
+			 '${title}', 
+			 '${content}', 
+			 (SELECT 
+				 	staffno 
+		      FROM 
+		      		staff 
+		      WHERE
+		      	userid = ${userId}),
+		      ${wdate}, 
+		      ${hits}, 
+		     '${boardType}'
+		)
+	</select>
+</mapper>

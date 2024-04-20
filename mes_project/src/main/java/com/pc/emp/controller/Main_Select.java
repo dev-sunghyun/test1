@@ -1,7 +1,6 @@
 package com.pc.emp.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -18,13 +17,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.pc.emp.dto.Main_DTO;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
-import board.free.BoardDTO;
+import com.pc.emp.dto.Main_DTO;
+import com.project.board.dto.BoardDTO;
+
 
 @WebServlet("/main")
 public class Main_Select extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -33,7 +35,7 @@ public class Main_Select extends HttpServlet {
 		// 이도연
 		try {
 			showSuggestBoard(request, response);
-		} catch (IOException | SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("건의게시판 못들어감");
 		}
@@ -253,7 +255,7 @@ public class Main_Select extends HttpServlet {
 		request.setAttribute("list", listt);
 
 		// 디스패쳐 포워드로 jsp로 보낸다.
-		RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/main.jsp");
+		RequestDispatcher dispatch = request.getRequestDispatcher("/WEB-INF/views/main.jsp");
 
 		try {
 			dispatch.forward(request, response);

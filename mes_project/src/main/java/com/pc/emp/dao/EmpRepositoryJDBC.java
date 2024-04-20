@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import com.pc.emp.dto.Absent;
 import com.pc.emp.dto.Account;
@@ -337,7 +336,7 @@ public class EmpRepositoryJDBC implements EmpRepository {
 
 			// 필수 필드만 업데이트하는 SQL 쿼리 생성
 			StringBuilder sqlBuilder = new StringBuilder("UPDATE staff SET");
-			List<Object> params = new ArrayList<>();
+			List<Object> params = new ArrayList<Object>();
 
 			if (acct.getUserId() != null && !acct.getUserId().isEmpty()) {
 				sqlBuilder.append(" userId = ?,");
@@ -515,7 +514,7 @@ public class EmpRepositoryJDBC implements EmpRepository {
 
 	// 휴가 신청 리스트
 	public List<Absent> getAbsentList() {
-		List<Absent> absentList = new ArrayList<>();
+		List<Absent> absentList = new ArrayList<Absent>();
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -566,7 +565,7 @@ public class EmpRepositoryJDBC implements EmpRepository {
 
 	// 휴가 신청 리스트 마이페이지용
 	public List<Absent> getAbsentList(int empno) {
-		List<Absent> absentList = new ArrayList<>();
+		List<Absent> absentList = new ArrayList<Absent>();
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;

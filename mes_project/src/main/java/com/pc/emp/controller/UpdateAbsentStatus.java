@@ -50,7 +50,7 @@ public class UpdateAbsentStatus extends HttpServlet {
 			Integer empno = (Integer) session.getAttribute("empno");
 
 			// absentList를 빈 리스트로 초기화
-			List<Absent> absentList = new ArrayList<>();
+			List<Absent> absentList = new ArrayList<Absent>();
 
 			if (empno != null) {
 				EmpRepositoryJDBC empRepository = new EmpRepositoryJDBC();
