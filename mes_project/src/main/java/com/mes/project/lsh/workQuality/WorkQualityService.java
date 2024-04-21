@@ -19,7 +19,7 @@ public class WorkQualityService {
 		List<WorkQualityDTO> detailList = workQualityDAO.selectWorkQualityDetail();
 		List<WorkQualityDTO> facilityList = workQualityDAO.selectWorkQualityFacility();
 		WorkQualityDTO workQualityDTO = workQualityDAO.selectWorkQualityStaff();
-		
+		System.out.println("List : " + facilityList);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("detailList", detailList);
 		map.put("facilityList", facilityList);

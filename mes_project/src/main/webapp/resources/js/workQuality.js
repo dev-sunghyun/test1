@@ -1,9 +1,9 @@
 window.addEventListener("load", function () {
 
-//qualityPopup();
-//addPopup();
-//retouchPopup();
-//sendError();
+qualityPopup();
+addPopup();
+retouchPopup();
+sendError();
 
 //    document.querySelector("#mainTitle2").style.display = "block";
 //
@@ -382,24 +382,45 @@ function retouchPopup() {
         retouch_popup.style.pointerEvents = "auto";
         
         // 체크된 체크박스 가져오기
-        let checked = document.querySelectorAll(".delete-check:checked");
+        let checked = document.querySelectorAll(".delete-checkbox:checked");
         
         // 폼에 추가할 데이터 넣어주기
         let form = document.querySelector(".retouch-note");       
         console.log(form + "수정폼");
-        checked.forEach(function(checkbox) {
+//        checked.forEach(function(checkbox) {
+//			
+//		    let input = document.createElement("input");
+//		    input.type = "hidden";
+//		    input.name = "w_bord_seq";
+//		    input.value = checkbox.value;
+//		    console.log(checkbox.value);
+//		    form.appendChild(input);
+//		});
+
+//		checked.forEach(function(checkbox) {
+//		    let hiddenInput = '<input type="hidden" name="w_bord_seq" value="' + checkbox.value + '">';
+//		    form.insertAdjacentHTML('beforeend', hiddenInput);
+//		});
+
+		checked.forEach(function(checkbox) {
+			
+		    // 체크된 요소의 부모 요소인 workList 가져옴
+			let workList = checkbox.closest('.work-check-list');
+			
+			// workList 내의 workOrder 요소에서 내용을 가져옴
+//		    let title = workList.querySelector('.w_title').innerText;
+//		    let detail = workList.querySelector('.w_detail').innerText;
+//			console.log("detail : " + detail)
+
+//			document.querySelector("#retouch-title").value = title;
+//	        document.querySelector("#retouch-detail").value = detail;
 			
 		    let input = document.createElement("input");
 		    input.type = "hidden";
-		    input.name = "checkValue";
+		    input.name = "w_bord_seq";
 		    input.value = checkbox.value;
-		    console.log(input);
+			console.log("seq : " + checkbox.value)
 		    form.appendChild(input);
-		});
-
-		checked.forEach(function(checkbox) {
-		    let hiddenInput = '<input type="hidden" name="checkValue" value="' + checkbox.value + '">';
-		    form.insertAdjacentHTML('beforeend', hiddenInput);
 		});
     });
 

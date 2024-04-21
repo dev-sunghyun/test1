@@ -18,7 +18,6 @@ public class WorkQualityDTO {
     String sname;
     String sphone;
     String smail;
-    
 	public int getW_bord_seq() {
 		return w_bord_seq;
 	}
@@ -37,18 +36,17 @@ public class WorkQualityDTO {
 	public void setW_detail(String w_detail) {
 		this.w_detail = w_detail;
 	}
-	
 	public int getProcid() {
 		return procid;
 	}
 	public void setProcid(int procid) {
 		this.procid = procid;
 	}
-	public String getLineNum() {
+	public String getLinenum() {
 		return linenum;
 	}
-	public void setLineNum(String lineNum) {
-		this.linenum = lineNum;
+	public void setLinenum(String linenum) {
+		this.linenum = linenum;
 	}
 	public Date getEndtime() {
 		return endtime;
@@ -68,7 +66,6 @@ public class WorkQualityDTO {
 	public void setG_sequence(int g_sequence) {
 		this.g_sequence = g_sequence;
 	}
-	
 	public int getStaffno() {
 		return staffno;
 	}
@@ -100,5 +97,5 @@ public class WorkQualityDTO {
 				+ ", procid=" + procid + ", linenum=" + linenum + ", endtime=" + endtime + ", pass=" + pass
 				+ ", g_sequence=" + g_sequence + ", staffno=" + staffno + ", sname=" + sname + ", sphone=" + sphone
 				+ ", smail=" + smail + "]";
-	}
+	}  
 }

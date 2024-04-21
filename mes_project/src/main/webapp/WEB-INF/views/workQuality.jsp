@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.pc.emp.dto.WorkOrderDTO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -1195,29 +1196,10 @@
                         <form method="post" action="workQualityDel">
                         
 	                        <div id="main-content">
-<%-- 	                        <% --%>
-// 			               	if ("WORKER".equals(role)) {
-<%-- 			               	%> --%>
+<%-- <%-- 	                        <% --%>
+<!-- // 			               	if ("WORKER".equals(role)) { -->
+<%-- <%-- 			               	%> --%>
 	                            <div id="work-checker">
-<%-- 	                            <% --%>
-// 	                            	int workerId = 0;
-// 	                            	String workerName = null;
-// 	                            	String workerTel = null;
-// 	                            	String workerEmail = null;
-	                            	
-// 	                            	for(int i = 0; i < list.size(); i++) {
-	                            		
-// 	                            		if(list.get(i).getWorkerName() != null) {
-	                            			
-// 	                            			workerId = list.get(i).getWorkerId();
-// 		                            		workerName = list.get(i).getWorkerName();
-// 		                            		workerTel = list.get(i).getWorkerTel();
-// 		                            		workerEmail = list.get(i).getWorkerEmail();
-		                            		
-// 		                            		break;
-// 	                            		}
-// 	                            	}
-<%-- 	                            %> --%>
 	                                <div id="work-checker-img">
 	                                    <img src="https://cdn.pixabay.com/photo/2016/08/31/11/54/icon-1633249_1280.png">
 	                                </div>
@@ -1240,125 +1222,78 @@
 		                                					${ i.linenum } ${ i.g_sequence } ${ i.pass }개 ${ i.endtime }		                                					
 	                                				</option>
 	                                			</c:forEach>
-<%-- <%-- 	                                		<% --%> --%>
-<!-- // 	                                			for(int i = 0; i < list.size(); i++) { -->
-<!-- // 	                                				System.out.println(list.get(i).getModel()); -->
-<!-- // 	                                				int goodsSeq = list.get(i).getGoodsSeq(); -->
-<!-- // 	                                				String line = list.get(i).getLine(); -->
-<!-- // 	                                				int model = list.get(i).getModel(); -->
-<!-- // 	                                				String hireDate = list.get(i).getHireDate(); -->
-<!-- // 	                                				int quantity = list.get(i).getQuantity(); -->
-	                                				
-<!-- // 	                                				if(line != null) { -->
-<%-- <%-- 	                                		%> --%> --%>
-<%-- <%-- 		                                				<option value="<%= goodsSeq %>"> --%> --%>
-<%-- <%-- 		                                					<%= line %> <%= model %> <%= quantity %>개 <%= hireDate %>		                                					 --%> --%>
-<!-- <!-- 		                                				</option> --> -->
-<%-- <%-- 	                                		<% --%> --%>
-<!-- // 	                                				} -->
-<!-- // 	                                			} -->
-<%-- <%-- 	                                		%> --%> --%>
 	                                	</select>
 	                                </div>
 	                            </div>
-<%-- <%-- 	                            <% --%> --%>
-<!-- // 			               		} -->
-<%-- <%-- 	                            %> --%> --%>
+
 								
 	                        	
 	                            <div id="work-quality">
-									<%
-			                        	for(int i = 0; i < list.size(); i++) {
-			                        		int seq = list.get(i).getSeq();
-			                        		String title = "";
-			                        		String detail = "";
-			                        		
-			                        		if(seq == 13) {
-			                        			
-			                        			guide = list.get(i).getDetail();
-			                        			System.out.println(guide);
-			                        		} else {
-			                        			
-				                        		title = list.get(i).getTitle();
-				                              	detail = list.get(i).getDetail();
-			                        		
-			                        		
-				                              	if(detail != null) {
-				                              		
-			                           				String[] detailArr = detail.split("\\\\n");
-			                        %>
-					                                <div class="work-check-list">
-					                                    <h3>
-					                                        <%= title %>
-					                                        <%
-											               	if ("ADMIN".equals(role)) {
-											               	%>
-					                                        <div class="delete-checkbox-div">
-					                                            <input type="checkbox" class="delete-checkbox" name="delCheck" value="<%= seq %>">
-					                                        </div>
-					                                        <%
-											               	}
-					                                        %>
-					                                    </h3>
-					                                    <%
-					                                    	for(int j = 0; j < detailArr.length; j++) {  		
-					                                    %>
-					                                    <div class="work-check-list-content">
-					                                        <span>
-					                                            <%= detailArr[j] %>
-					                                            <div class="error-checkbox-div">
-					                                            	<input type="hidden" value="<%= detailArr[j] %>">
-					                                            	<%
-													               	if ("WORKER".equals(role)) {
-													               	%>
-					                                                <input type="checkbox" class="error-checkbox">
-					                                                <%
-													               	}
-					                                                %>
-					                                            </div>
-					                                            <%
-												               	if ("WORKER".equals(role)) {
-												               	%>
-					                                            <input type="number" class="error-quantity">
-					                                            <%
-												               	}
-					                                            %>
-					                                        </span>
-					                                    </div>
-					                                    <%
-					                                    	}
-					                                    %>
-					                                </div>
-	                                <%			
-			                              		}
-			                        		}
-			                        	}
-		                        	%>        
+										<c:forEach var="i" items="${ detailList }">
+			                                <div class="work-check-list">
+			                                    <h3>
+													${ i.w_title }
+<%-- 					                                        <% --%>
+<!-- 											               	if ("ADMIN".equals(role)) { -->
+<!-- 											               	%> -->
+			                                        <div class="delete-checkbox-div">
+			                                            <input type="checkbox" class="delete-checkbox" name="delCheck" value="${ i.w_bord_seq }">
+			                                        </div>
+<%-- 					                                        <% --%>
+<!-- 											               	} -->
+<!-- 					                                        %> -->
+			                                    </h3>
+												<c:forEach var="j" items="${ fn:split(i.w_detail, '\\\\n') }">
+				                                    <div class="work-check-list-content">
+				                                        <span>
+															${ j }
+				                                            <div class="error-checkbox-div">
+				                                            	<input type="hidden" value="${ j }">
+	<%-- 					                                            	<% --%>
+	<!-- 													               	if ("WORKER".equals(role)) { -->
+	<!-- 													               	%> -->
+				                                                <input type="checkbox" class="error-checkbox">
+	<%-- 					                                                <% --%>
+	<!-- 													               	} -->
+	<!-- 					                                                %> -->
+				                                            </div>
+	<%-- 					                                            <% --%>
+	<!-- 												               	if ("WORKER".equals(role)) { -->
+	<!-- 												               	%> -->
+				                                            <input type="number" class="error-quantity">
+	<%-- 					                                            <% --%>
+	<!-- // 												               	} -->
+	<!-- 					                                            %> -->
+				                                        </span>
+				                                    </div>
+												</c:forEach>
+			                                </div>
+										</c:forEach>
 	                            </div>
 	
 	                        </div>
-	                        <%
-			               	if ("WORKER".equals(role)) {
-			               	%>
+<%-- 	                        <% --%>
+<!-- 			               	if ("WORKER".equals(role)) { -->
+<!-- 			               	%> -->
 	                        <div id="complete-button-div">
 	                            <button type="button" id="send-button">전송</button>
 <!-- 	                            <button type="button" id="complete-button">완료</button> -->
 	                        </div>
-	                        <%
-			               	}
-	                        %>
-	                        <%
-			               	if ("ADMIN".equals(role)) {
-			               	%>
+<%-- 	                        <% --%>
+<!-- 			               	} -->
+<!-- 	                        %> -->
+<%-- 	                        <% --%>
+<!-- 			               	if ("ADMIN".equals(role)) { -->
+<!-- 			               	%> -->
 	                        <div id="add-button-div">
 	                            <button type="button" id="list-add-button" class="add-button">추가하기</button>
 	                            <button type="button" id="list-retouch-button" class="add-button">수정하기</button>
 	                            <input type="submit" id="list-delete" class="list-delete-button" value="삭제하기">
 <!-- 	                            <button type="button" id="user" class="add-button">유저</button> -->
 	                        </div>
-	                        <%
-			               	}
-	                        %>
+<%-- 	                        <% --%>
+<!-- 			               	} -->
+<!-- 	                        %> -->
                         </form>
 	                    </div>
                     <!-- 품질검사 지침서 팝업 -->
@@ -1400,9 +1335,9 @@
 	                            <h2>품질불량 체크사항 추가하기</h2>
 	                            <div class="add-note">
 	                                <p>추가할 제목</p>
-	                                <input type="text" id="add-title" class="add-title" name="title" placeholder="제목입력">
+	                                <input type="text" id="add-title" class="add-title" name="w_title" placeholder="제목입력">
 	                                <p>추가할 목록</p>
-	                                <textarea id="add-detail" class="add-detail" name="detail" rows="5" cols="50"
+	                                <textarea id="add-detail" class="add-detail" name="w_detail" rows="5" cols="50"
 	                                    placeholder="목록입력시 한목록당 엔터 쳐주세요"></textarea>
 	                            </div>
 	                            <div class="add-apply-div">
@@ -1414,15 +1349,15 @@
                     </form>
                     
                     <!-- 품질불량 체크사항 수정팝업 -->
-<!--                      <form method="post" action="workQualityRetouch">         -->
+                     <form method="post" action="workQuality/update">        
 	                    <div id="quality-retouch-popup" class="retouch-popup">
 	                        <div class="retouch-popup-content">
 	                            <h2>품질불량 체크사항 수정하기</h2>
 	                            <div class="retouch-note">
 	                                <p>수정할 제목</p>
-	                                <input type="text" id="retouch-title" class="add-title" name="title" placeholder="제목입력">
+	                                <input type="text" id="retouch-title" class="add-title" name="w_title" placeholder="제목입력">
 	                                <p>수정할 목록</p>
-	                                <textarea id="retouch-detail" class="add-detail" name="detail" rows="5" cols="50"
+	                                <textarea id="retouch-detail" class="add-detail" name="w_detail" rows="5" cols="50"
 	                                    placeholder="목록입력시 한목록당 엔터 쳐주세요"></textarea>
 	                            </div>
 	                            <div class="add-apply-div">
@@ -1431,7 +1366,7 @@
 	                            </div>
 	                        </div>
 	                    </div>
-<!--                     </form> -->
+                    </form>
 
 
                 </article>
